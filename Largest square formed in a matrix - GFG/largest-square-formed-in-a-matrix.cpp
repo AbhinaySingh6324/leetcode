@@ -35,7 +35,7 @@ public:
              for( int j =1 ; j <m ;j++)
              {  if(mat[i][j])
                 dp[i][j] = min(dp[i-1][j],min(dp[i][j-1],dp[i-1][j-1]))+mat[i][j];
-                else mat[i][j] = 0;
+                else dp[i][j] = 0;
                 maxi = max(maxi,dp[i][j]);
              }
          }
