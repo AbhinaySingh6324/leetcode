@@ -14,7 +14,7 @@ class Solution{
            int  a = arr[i]+min(opt(arr,i+2,j),opt(arr,i+1,j-1));
            int b = arr[j] +min(opt(arr,i,j-2), opt(arr,i+1,j-1));
            
-           dp[i][j] = 1ll*max(a,b);
+           dp[i][j] = max(a,b);
             return dp[i][j]; 
        
         
