@@ -8,7 +8,7 @@ using namespace std;
 class Solution{
     public:
     long long   dp[1001][1001];
-      long long opt( int arr[], int i, int j)
+       int  opt( int arr[], int i, int j)
     { if(i>j)return 0;
       if (dp[i][j]!=-1) return dp[i][j];
            int  a = arr[i]+min(opt(arr,i+2,j),opt(arr,i+1,j-1));
