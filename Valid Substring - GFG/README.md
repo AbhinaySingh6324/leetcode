@@ -1,5 +1,5 @@
 # Valid Substring
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given a string <strong>S </strong>consisting only of opening and closing parenthesis 'ie <strong>'(' &nbsp;</strong>and <strong>')'</strong>, find out the length of the longest valid(well-formed) parentheses</span><span style="font-size:18px"> substring.</span><br>
 <span style="font-size:18px"><strong>NOTE: </strong>Length of&nbsp;the smallest&nbsp;valid substring&nbsp;<strong>( )</strong> is <strong>2</strong>.</span></p>
