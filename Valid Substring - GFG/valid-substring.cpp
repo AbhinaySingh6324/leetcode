@@ -9,52 +9,42 @@ using namespace std;
 class Solution {
   public:
     int findMaxLen(string s) {
-         int o = 0;
-          int c = 0;
-           int n = s.length();
-           int l = 0;
-           int maxi = 0;
-          for( int  i =0 ; i<n; i++)
-          {  
-              if(s[i]=='(')
-              {
-                  o++;
-              }
-              else
-              {
-                  c++;
-              }
-              if(c==o)
-              {
-                  maxi = max(maxi,2*o);
-              }
-              else if(c>o)
-              {
-                  c = 0,o = 0;
-              }
-          }
-           o = 0;
-           c = 0;
-          for( int  i =n-1 ; i>=0; i--)
-          {  
-              if(s[i]=='(')
-              {
-                  o++;
-              }
-              else
-              {
-                  c++;
-              }
-              if(c==o)
-              {
-                  maxi = max(maxi,2*o);
-              }
-              else if(c<o)
-              {
-                  c = 0,o = 0;
-              }
-          }
-        return maxi;
+         int maxi = 0;
+          int  o  = 0;
+          int l =0 ;
+           int c =0 ;
+            int n = s.length();
+             for( int i =0 ;i < n;i++)
+             {
+                  if(s[i]=='(') o++;
+                  else c++;
+                   if(o==c)
+                   {
+                       maxi = max(maxi,2*c);
+                   }
+                   else if(c>o)
+                   {
+                       c = 0;
+                       o = 0;
+                   }
+             }
+              c =0;
+              o = 0;
+             for( int i =n-1 ;i>=0;i--)
+             {
+                  if(s[i]=='(') o++;
+                  else c++;
+                   if(o==c)
+                   {
+                       maxi = max(maxi,2*c);
+                   }
+                   else if(c<o)
+                   {
+                       c = 0;
+                       o = 0;
+                   }
+             }
+    return maxi;
     }
 };
 
