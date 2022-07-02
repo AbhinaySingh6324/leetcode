@@ -29,8 +29,7 @@ public:
     
     TreeNode* subtreeWithAllDeepest(TreeNode* root) {
        
-        pair<TreeNode*,int> k =  kill(root);
-        return k.first;
+        return kill(root).first;
         
     }
 };
