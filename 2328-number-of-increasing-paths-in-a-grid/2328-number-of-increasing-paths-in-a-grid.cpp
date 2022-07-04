@@ -5,7 +5,7 @@ public:
      {
       return 0;   
      }
-      if(dp[i][j]!=-1) return dp[i][j];
+      if(dp[i][j]!=1) return dp[i][j];
       int ans =  1;
        ans += (solve(grid,i+1,j,m,n,grid[i][j],dp)+solve(grid,i,j+1,m,n,grid[i][j],dp)%1000000007+solve(grid,i-1,j,m,n,grid[i][j],dp)%1000000007+solve(grid,i,j-1,m,n,grid[i][j],dp)%1000000007)%1000000007; 
          
@@ -18,13 +18,13 @@ public:
         int m= grid.size();
         int n =  grid[0].size();
         vector<vector<int>>dp(m,vector<int>(n,-1)); 
-        // for( int i = 0;i<m;i++)
-        //  {
-        //      for( int j = 0;j<n;j++)
-        //      {
-        //          dp[i][j] = 1;
-        //      }
-        //  }
+        for( int i = 0;i<m;i++)
+         {
+             for( int j = 0;j<n;j++)
+             {
+                 dp[i][j] = 1;
+             }
+         }
         int ans = 0;
         for( int i = 0;i<m;i++)
          {
