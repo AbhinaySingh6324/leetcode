@@ -21,9 +21,9 @@ public:
          int lastF = n-1-forget; //people who knew the secret up until this day will forget it on the nth day
 		if(lastF>=0)
         {
-             return  (dp[n-1] - dp[lastF] + mod)%mod;
+             return  (int)(dp[n-1] - dp[lastF] + mod)%mod;
         }
-        return  dp[n-1]%mod;// we have been asked to get the answer at the end of the  nth day so the people 
+        return  (int)dp[n-1]%mod;// we have been asked to get the answer at the end of the  nth day so the people 
         
     }
 };
