@@ -2,24 +2,36 @@ class Solution {
 public:
     
       
-     unordered_map<int, int> dp;
-    int minDays(int n) {
-        return dfs(n);
-    }
+     unordered_map<int,int>dp;
+     int solve( int i)
+     {   if(i==1) return 1;
+         if(i==2) return 2;
+             if(dp.count(i)) return dp[i];
+      int ans = INT_MAX;
+       if(i%2==0)
+       {
+            ans = min(solve(i/2)+1,ans);
+           
+       }
+       if(i%3==0)
+       {
+            ans = min(ans,solve(i/3)+1);
+       }
+       if((i-1)%2==0||(i-1)%3==0)
+       {
+             ans = min(ans,1+solve(i-1));
+       }
+      
+       if((i-2)%3==0)
+       {
+            ans =  min(ans,2+solve(i-2));
+       }
+      
+      return dp[i] = ans;
+     }
     
-    int dfs(int n) {
-        if(n == 1) return 1;
-        if(n == 2) return 2;
-        if(dp.count(n)) return dp[n];
-        int res = INT_MAX;
-        if(n % 2 == 0)
-            res = min(res, 1 + dfs(n / 2));
-        if(n % 3 == 0)
-            res = min(res, 1 + dfs(n / 3));
-        if((n - 1) % 2 == 0 || (n - 1 )% 3 == 0)
-            res = min(res, 1 + dfs(n - 1));
-        if((n - 2) % 3 == 0)
-            res = min(res, 2 + dfs(n - 2));
-        return dp[n] = res;
+    int minDays(int n) {
+         
+          return solve(n);   
     }
 };
