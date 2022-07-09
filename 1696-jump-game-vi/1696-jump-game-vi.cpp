@@ -8,7 +8,7 @@ public:
          pq.push({dp[0],0});
          for(int i  = 1 ; i<n;i++)
          {
-              while(pq.size()>k and pq.top().second<i-k)
+              while(pq.top().second<i-k)
               {
                   pq.pop();
               }
