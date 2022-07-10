@@ -1,18 +1,11 @@
 class Solution {
 public:
     
-    inline  bool check(string &s , string& t)
-    {
-         vector<int>dp;
-         vector<int>dp1;
-         for(int i =0 ;i <s.length();i++)
-         {
-              if(s[i]=='R') dp.push_back(1);
-             if(s[i]=='L') dp.push_back(0);
-             if(t[i]=='R') dp1.push_back(1);
-             if(t[i]=='L') dp1.push_back(0);
-         }
-         return dp==dp1;
+    inline bool static check(string& s1,string& s2){
+        string a,b;
+        for(auto it : s1) if(it!='_') a+=it;
+        for(auto it : s2) if(it!='_') b+=it;
+        return a==b;
     }
     bool canChange(string s, string t) {
          vector<int>dp,dp1,dpr,dpr1;
