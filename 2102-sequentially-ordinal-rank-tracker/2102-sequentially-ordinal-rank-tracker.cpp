@@ -1,45 +1,33 @@
-class SORTracker {
+class MedianFinder {
 public:
-    #define pis pair<int, string> 
-    struct cmp{
-        bool operator()(pis &a, pis & b){
-            if(a.first == b.first) return a.second > b.second; 
-            return a.first < b.first; 
-        }
-    };
     
-    struct cmpRev{
-        bool operator()(pis &a, pis & b){
-            if(a.first == b.first) return a.second < b.second; 
-            return a.first > b.first; 
-        }
-    };
-    
-    int i = 0; 
-    priority_queue<pis, vector<pis>, cmp> maxHeap; 
-    priority_queue<pis, vector<pis>, cmpRev> minHeap; 
-    SORTracker() {
-        
+    priority_queue<int> small;
+    priority_queue<int,vector<int>,greater<int>> large;
+    bool even;
+    MedianFinder() {
+        even = true;
     }
     
-    void add(string name, int score) {
-        while(minHeap.size()<i+1 && maxHeap.size()){
-            minHeap.push(maxHeap.top()); 
-            maxHeap.pop(); 
+    void addNum(int num) {
+        if(even)
+        {
+            large.push(num);
+            small.push(large.top());
+            large.pop();
         }
-        
-        minHeap.push({score, name}); 
-        if(minHeap.size() > i+1) {
-            maxHeap.push(minHeap.top()); 
-            minHeap.pop(); 
+        else
+        {
+            small.push(num);
+            large.push(small.top());
+            small.pop();
         }
+        even=!even;
     }
     
-    string get() {
-        i++; 
-        auto temp = minHeap.top();
-        minHeap.pop(); 
-        add(temp.second, temp.first); 
-        return temp.second; 
+    double findMedian() {
+        if(even)
+            return (small.top()+large.top())/2.0;
+        else
+            return small.top();
     }
 };
